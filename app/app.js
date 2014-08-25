@@ -1,10 +1,10 @@
 var chartify = angular.module('chartify', [
   'ngRoute'
 ])
-  .controller('PatternController',['$scope',
-  function($scope){
+  .controller('PatternController',['$scope', '$location',
+  function($scope, $location){
     $scope.chart= function(){
-      console.log('chart clicked');
+      $location.path('/chart');
     };
 }]);
 
