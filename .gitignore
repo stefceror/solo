@@ -1,1 +1,10 @@
 bower_components/
+node_modules/
+package.json
+bower.json
+Gruntfile.js
+.DS_Store
+.bowerrc
+.editorconfig
+.jshintrc
+.yo-rc.json

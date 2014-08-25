@@ -1,0 +1,29 @@
+* {
+  padding: 10px;
+}
+
+.navigation {
+  background-color: #ccccff;
+  width: 100%;
+}
+
+#pattern{
+  width: 99.5%;
+  height: 400px;
+  float: left;
+}
+
+#chartify{
+  width: 30%;
+  height: 40px;
+  float: right;
+  clear: left;
+}
+table{
+  border-collapse: collapse;
+}
+td {
+  border: 1px solid black;
+  width: 1em;
+  height: 1em;
+}

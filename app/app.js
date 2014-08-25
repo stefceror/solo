@@ -6,7 +6,14 @@ var chartify = angular.module('chartify', [
     $scope.chart= function(){
       $location.path('/chart');
     };
-}]);
+}])
+  .controller('ChartController', ['$scope', 
+    function($scope){
+      $scope.rows = [
+        ['k', 'k', 'p', 'p'],
+        ['k', 'k', 'p', 'p']
+      ];
+  }]);
 
 chartify.config(['$routeProvider', function($routeProvider){
   $routeProvider
@@ -15,7 +22,8 @@ chartify.config(['$routeProvider', function($routeProvider){
       controller: 'PatternController'
     })
     .when('/chart', {
-      templateUrl: 'chart.html'
+      templateUrl: 'chart.html',
+      controller: 'ChartController'
     })
     .otherwise({
       redirectTo: '/'
