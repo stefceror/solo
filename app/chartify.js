@@ -4,7 +4,11 @@ var chartify = angular.module('chartify.pattern', [])
     var chartSymbols = [];
     var symbols = {
       k: ' ',
-      p: '\u1427'
+      p: '\u1427',
+      k2tog: '/',
+      ssk: '\\',
+      yo: '\u25CB',
+      sl: '\V'
     };
 
     var resetChart = function(){
@@ -31,11 +35,20 @@ var chartify = angular.module('chartify.pattern', [])
         }
         chartSymbols.unshift(row);
       }
-    // return chartSymbols;
     };
 
     var findStitch = function(string){
-      return string.slice(0, 1);
+      var maxLength = string.length;
+      var stitchStr = '';
+      if(symbols[string] !== undefined){
+        stitchStr = string;
+      } else if(string[maxLength-1] === ','){
+        maxLength--;
+        stitchStr = findStitch(string.slice(0, maxLength));
+      } else {
+        stitchStr = findStitch(string.slice(0, maxLength - 1));
+      }
+      return stitchStr;
     }
 
     var findNum = function(string, stitchSymbol){
