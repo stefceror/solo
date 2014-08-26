@@ -25,16 +25,17 @@ var chartify = angular.module('chartify.pattern', [])
         for(var j = 0; j < tempRow.length; j++){
           stitchSymbol = tempRow[j].slice(0, 1);
           if(tempRow[j][tempRow[j].length-1] === ","){
-            if (isNaN(tempRow[j][tempRow[j].length-1])){
-            numStitch = 1;
+            if (isNaN(tempRow[j][tempRow[j].length-2])){
+              numStitch = 1;
             }else{
-              numStitch = tempRow[j].slice(1, -1);
+              endDigits = tempRow[j].length - 1;
+              numStitch = tempRow[j].slice(stitchSymbol.length, endDigits);
             }
           } else if (isNaN(tempRow[j][tempRow[j].length-1])){
             numStitch = 1;
             console.log('fancy')
           } else {
-            numStitch = tempRow[j].slice(1);
+            numStitch = tempRow[j].slice(stitchSymbol.length);
           }
           for (var k = 0; k < numStitch; k++){
             row.unshift(symbols[stitchSymbol]);
