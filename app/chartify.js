@@ -25,7 +25,11 @@ var chartify = angular.module('chartify.pattern', [])
         for(var j = 0; j < tempRow.length; j++){
           stitchSymbol = tempRow[j].slice(0, 1);
           if(tempRow[j][tempRow[j].length-1] === ","){
-            numStitch = tempRow[j].slice(1, -1);
+            if (isNaN(tempRow[j][tempRow[j].length-1])){
+            numStitch = 1;
+            }else{
+              numStitch = tempRow[j].slice(1, -1);
+            }
           } else if (isNaN(tempRow[j][tempRow[j].length-1])){
             numStitch = 1;
             console.log('fancy')
