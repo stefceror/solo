@@ -2,11 +2,11 @@ var chartify = angular.module('chartify.pattern', [])
 
   .factory('chartifyPattern', function(){
     var chartSymbols = [];
+    var symbols = {
+      k: ' ',
+      p: '\xB7'
+    };
     var chartifyPattern = function(pattern){
-      var symbols = {
-        k: ' ',
-        p: '\xB7'
-      };
       var rows = pattern.split('\n');
       // var chartSymbols = [];
       var tempRow = [];
@@ -24,10 +24,10 @@ var chartify = angular.module('chartify.pattern', [])
             numStitch = tempRow[j].slice(1);
           }
           for (var k = 0; k < numStitch; k++){
-            row.push(symbols[stitchSymbol]);
+            row.unshift(symbols[stitchSymbol]);
           }
         }
-        chartSymbols.push(row);
+        chartSymbols.unshift(row);
       }
     // return chartSymbols;
   }
