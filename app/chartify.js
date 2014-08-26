@@ -4,7 +4,7 @@ var chartify = angular.module('chartify.pattern', [])
     var chartSymbols = [];
     var symbols = {
       k: ' ',
-      p: '\xB7'
+      p: '\u1427'
     };
 
     var resetChart = function(){
