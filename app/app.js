@@ -9,9 +9,15 @@ var chartify = angular.module('chartify', [
 }])
   .controller('ChartController', ['$scope', 
     function($scope){
+      var symbols = {
+        k: ' ',
+        p: '\xB7'
+      }
       $scope.rows = [
-        ['k', 'k', 'p', 'p'],
-        ['k', 'k', 'p', 'p']
+        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
+        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
+        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
+        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p]
       ];
   }]);
 
