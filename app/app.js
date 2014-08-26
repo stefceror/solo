@@ -4,10 +4,11 @@ var chartify = angular.module('chartify', [
 ])
   .controller('PatternController',
   function($scope, $location, chartifyPattern){
-    var chartifyPattern = chartifyPattern.chartifyPattern;
+    var createChart = chartifyPattern.chartifyPattern;
+    var resetChart = chartifyPattern.resetChart;
     $scope.chart= function(){
-      console.log($scope.pattern)
-      chartifyPattern($scope.pattern);
+      resetChart();
+      createChart($scope.pattern);
       $location.path('/chart');
     };
 })

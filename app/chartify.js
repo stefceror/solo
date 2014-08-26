@@ -6,9 +6,15 @@ var chartify = angular.module('chartify.pattern', [])
       k: ' ',
       p: '\xB7'
     };
+
+    var resetChart = function(){
+      while(chartSymbols.length){
+        chartSymbols.pop();
+      }
+    }
+
     var chartifyPattern = function(pattern){
       var rows = pattern.split('\n');
-      // var chartSymbols = [];
       var tempRow = [];
       var numStitch = 0;
       var row = [];
@@ -31,8 +37,10 @@ var chartify = angular.module('chartify.pattern', [])
       }
     // return chartSymbols;
   }
+
   return {
     chartifyPattern: chartifyPattern,
-    chartSymbols: chartSymbols
+    chartSymbols: chartSymbols,
+    resetChart: resetChart
   }
 });
