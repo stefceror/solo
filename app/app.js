@@ -1,25 +1,29 @@
 var chartify = angular.module('chartify', [
-  'ngRoute'
+  'ngRoute',
+  'chartify.pattern'
 ])
-  .controller('PatternController',['$scope', '$location',
-  function($scope, $location){
+  .controller('PatternController',
+  function($scope, $location, chartifyPattern){
+    var chartifyPattern = chartifyPattern.chartifyPattern;
     $scope.chart= function(){
+      console.log($scope.pattern)
+      chartifyPattern($scope.pattern);
       $location.path('/chart');
     };
-}])
-  .controller('ChartController', ['$scope', 
-    function($scope){
+})
+  .controller('ChartController',
+    function($scope, chartifyPattern){
       var symbols = {
     k: ' ',
     p: '\xB7'
   };
-      $scope.rows = [
-        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
-        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
-        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
-        [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p]
-      ];
-  }]);
+      $scope.rows = chartifyPattern.chartSymbols; //[
+      //   [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
+      //   [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
+      //   [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p],
+      //   [symbols.k, symbols.k, symbols.p, symbols.p, symbols.k, symbols.k, symbols.p, symbols.p]
+      // ];
+  });
 
 chartify.config(['$routeProvider', function($routeProvider){
   $routeProvider
