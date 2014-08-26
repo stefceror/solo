@@ -18,7 +18,9 @@ body{
   font-family: 'Dancing Script', cursive;
 }
 .navigation {
-  width: 100%;
+  width: 99%;
+  margin-right: auto;
+  margin-left: auto; 
   height: 50px;
   background-color: #0047b2;
 }
@@ -63,7 +65,7 @@ body{
 }
 
 #chartify{
-  width: 30%;
+  width: 10%;
   height: 40px;
   float: right;
   clear: left;
