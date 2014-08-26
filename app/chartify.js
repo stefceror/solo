@@ -23,20 +23,8 @@ var chartify = angular.module('chartify.pattern', [])
         tempRow = rows[i].split(" ");
         row = [];
         for(var j = 0; j < tempRow.length; j++){
-          stitchSymbol = tempRow[j].slice(0, 1);
-          if(tempRow[j][tempRow[j].length-1] === ","){
-            if (isNaN(tempRow[j][tempRow[j].length-2])){
-              numStitch = 1;
-            }else{
-              endDigits = tempRow[j].length - 1;
-              numStitch = tempRow[j].slice(stitchSymbol.length, endDigits);
-            }
-          } else if (isNaN(tempRow[j][tempRow[j].length-1])){
-            numStitch = 1;
-            console.log('fancy')
-          } else {
-            numStitch = tempRow[j].slice(stitchSymbol.length);
-          }
+          stitchSymbol = findStitch(tempRow[j]);
+          numStitch = findNum(tempRow[j], stitchSymbol);
           for (var k = 0; k < numStitch; k++){
             row.unshift(symbols[stitchSymbol]);
           }
@@ -44,7 +32,27 @@ var chartify = angular.module('chartify.pattern', [])
         chartSymbols.unshift(row);
       }
     // return chartSymbols;
-  }
+    };
+
+    var findStitch = function(string){
+      return string.slice(0, 1);
+    }
+
+    var findNum = function(string, stitchSymbol){
+      if(string[string.length-1] === ","){
+        if (isNaN(string[string.length-2])){
+          numStitch = 1;
+        }else{
+          endDigits = string.length - 1;
+          numStitch = string.slice(stitchSymbol.length, endDigits);
+        }
+      } else if (isNaN(string[string.length-1])){
+        numStitch = 1;
+      } else {
+        numStitch = string.slice(stitchSymbol.length);
+      }
+      return numStitch;
+    };
 
   return {
     chartifyPattern: chartifyPattern,
