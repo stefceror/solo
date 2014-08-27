@@ -47,10 +47,12 @@ body{
 
 .navigation li a:hover {
   background-color: #0183D2;
+  color: #F49B78;
 }
 
 .navigation li a.selected {
   background-color: #A1CC1E;
+    color: #F49B78;
 }
 
 #container {
