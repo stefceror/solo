@@ -9,7 +9,7 @@ var chartify = angular.module('chartify.pattern', [])
       ssk: '\\',
       yo: '\u25CB',
       sl: '\V',
-      s2kp: '^'
+      s2kp: '\u02C4'
     };
 
     var resetChart = function(){
