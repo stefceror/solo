@@ -27,6 +27,7 @@ var chartify = angular.module('chartify.pattern', [])
       for(var i = 0; i < rows.length; i++){
         tempRow = rows[i].split(" ");
         row = [];
+        row.unshift(i + 1);
         for(var j = 0; j < tempRow.length; j++){
           stitchSymbol = findStitch(tempRow[j]);
           numStitch = findNum(tempRow[j], stitchSymbol);
